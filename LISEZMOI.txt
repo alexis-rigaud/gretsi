@@ -1,0 +1,11 @@
+Le fichier fourni est un modèle LaTeX permettant d'écrire une communication pour le colloque GRETSI.
+
+
+Version log
+===========
+
+# v1.2 (2008/12/15, D. Ginhac : dom@gretsi.fr)
+   ...
+
+# v1.3 (2023/01/25, V. Mazet : vincent.mazet@unistra.fr)
+  Mise à jour pour suivre les évolutions du modèle LaTeX.

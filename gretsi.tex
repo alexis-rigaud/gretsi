@@ -1,0 +1,230 @@
+% EXEMPLE DE CONTRIBUTION AU GRETSI
+
+% Classe `gretsi`
+% Définir la langue utilisée (`francais` ou `english`)
+\documentclass[francais]{gretsi}
+
+% Encodage du fichier source
+\usepackage[utf8]{inputenc}
+
+% Encodage des caractères dans le PDF
+\usepackage[T1]{fontenc}
+
+% Packages mathématiques
+\usepackage{amsmath, amssymb, amsfonts}
+
+\begin{document}
+
+% ===================================================================================== %
+
+% Titre
+\titre{Instructions aux auteurs du Gretsi \\ Format \LaTeXe}
+
+% Auteurs
+\auteurs{
+  % Syntaxe : \auteur{<prénom>}{<nom>}{<adresse électronique>}{<indice d'affiliation>}
+  \auteur{Michel}{Dupont}{mdupont@uni.fr}{1}
+  \auteur{Danielle}{Durand}{dd@uni.com}{2}
+  \auteur{Patrick}{Martin}{pm@uni.fr}{2}
+}
+
+% Affiliations
+\affils{
+  % Syntaxe : \affil{<indice d'affiliation>}{<nom du labo et adresse>}
+  \affil{1}{Laboratoire Traitement des Signaux,
+        1 rue de la parole, BP 00000,
+        99000 Nouvelleville Cedex 00, France
+  }
+  \affil{2}{Laboratoire Traitement des Images,
+        1 rue de la vision, BP 99999,
+        00000 Autreville, France
+  }
+}
+
+% Si tous les auteurs ont la même adresse : ne pas mettre de numéro d'affiliation. Exemple :
+% \auteurs{
+  % \auteur{Michel}{Dupont}{mdupont@uni.fr}{}
+  % \auteur{Danielle}{Durand}{dd@uni.com}{}
+% }
+% \affils{
+%   \affil{}{Laboratoire Traitement des Signaux,
+%         1 rue de la parole, BP 00000,
+%         99000 Nouvelleville Cedex 00, France
+%   }
+% }
+
+% Résumé en français
+\resume{Les auteurs publiant au GRETSI et utilisant le traitement de texte \LaTeXe\
+trouveront ci-dessous quelques indications destinées à leur faciliter la tâche.
+Le fichier \texttt{gretsi.tex} qui contient le présent document
+respecte les contraintes fixées.}
+
+% Résumé en anglais
+\abstract{GRETSI authors who are \LaTeXe\ users
+will find above some informations to help them.
+The file \texttt{gretsi.tex} which contains this document obeys the rules.}
+
+\maketitle
+
+% ===================================================================================== %
+
+\section{Format du document}
+
+\subsection{La classe \texttt{gretsi}}
+
+Votre article ne doit pas dépasser 4 pages, tableaux et figures inclus.
+Il est constitué de deux colonnes de 86~mm, espacées de 10~mm.
+La classe \texttt{gretsi.cls} au format \LaTeXe\ que nous vous recommandons d'utiliser
+vous permettra de réaliser automatiquement la mise en page, à l'aide de la commande~:
+\begin{verbatim}
+  \documentclass[francais]{gretsi}
+\end{verbatim}
+L'option \texttt{francais} gère tous les aspects liés à la rédaction et la typographie française.
+l'article peut être écrit en anglais pour les auteurs non francophones~;
+dans ce cas, utilisez l'option \texttt{english}.
+
+Le paquet \texttt{gretsi} charge automatiquement les paquets suivants~:
+\begin{center}
+  \begin{tabular}{l@{\hspace*{15mm}}l}
+    \texttt{algorithm2e}, &
+    \texttt{babel}, \\
+    \texttt{booktabs}, &
+    \texttt{geometry}, \\
+    \texttt{graphicx}, &
+    \texttt{hyperref}, \\
+    \texttt{microtype}, &
+    \texttt{times}. \\
+  \end{tabular}
+\end{center}
+
+D'autres paquets sont à charger dans le code source de votre article,
+en modifiant si nécessaire les options~:
+\begin{verbatim}
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{amsmath, amssymb, amsfonts}
+\end{verbatim}
+
+\subsection{En-tête de l'article}
+
+En début de document, après \verb!\begin{document}!, vous devrez définir les informations suivantes~:
+\begin{itemize}
+
+  \item le titre de l'article~:\\
+  \verb!\titre{Titre de l'article}!
+
+  \item le prénom et le nom de chaque auteur, suivi d'un numéro renvoyant à son adresse~:\\
+  \verb!\auteurs{!\\
+  \verb!   \auteur{Pierre}{Dupont}!\\
+  \verb!          {p.dupont@gretsi.fr}{1},!\\
+  \verb!   \auteur{John}{Smith}!\\
+  \verb!          {john.smith@gretsi.fr}{2}}!
+
+  \item l'adresse de chaque auteur~:\\
+  \verb!\affils{\affil{1}{Labo, rue, ville}! \\
+  \verb!        \affil{2}{Labo, rue, ville}!
+
+  \item les résumés en français et en anglais~:\\
+  \verb!\resume{Résumé en français}! \\
+  \verb!\abstract{Abstract in English}!
+
+  \item enfin, indiquez à \LaTeXe de créer le titre~: \\
+  \verb!\maketitle! \\
+
+\end{itemize}
+
+\subsection{Titre et sous-titres}
+
+La hiérarchie du document est obtenue avec les commandes \verb!\section! et \verb!\subsection!.
+
+% ===================================================================================== %
+
+\section{Langue et typographie}
+
+La typographie de votre article doit respecter les règles habituelles de la langue de rédaction.
+
+En français, la ponctuation haute (\verb&;& \verb&:& \verb&?& \verb&!&) doit être précédée d'une espace insécable
+(codée par un tilde).
+Les guillemets à la française sont entrées avec
+\verb!\og{}texte\fg{}! ou
+\verb!<< texte >>!.
+Enfin, les majuscules doivent être accentuées.
+
+% ===================================================================================== %
+
+\section{Tableaux}
+
+Les tableaux doivent être précédés par leur légende (\verb!\caption!),
+un exemple est donné table~\ref{puissancededeux}.
+
+\begin{table}[htb]
+    \caption{\label{puissancededeux}table des puissances}
+    \begin{center}
+    \begin{tabular}{l*{8}{c}}
+        \toprule
+        $n$   &   1 &   2 &   3 &   4 &   5 &    6 &  7 &  8 \\
+        \midrule
+        $n^2$ &   1 &   4 &   9 &  16 &  25 &  36 &  49 &  64 \\
+        $n^3$ &   1 &   8 &  27 &  64 & 125 & 216 & 343 & 512 \\
+        \bottomrule
+    \end{tabular}
+    \end{center}
+\end{table}
+
+% ===================================================================================== %
+
+\section{Figures}
+
+À l'inverse, les figures sont suivies par leur titre, comme c'est le cas de la figure~\ref{logo}.
+
+\begin{figure}[htb]
+  \begin{center}
+    \includegraphics[width=.5\columnwidth]{logo}
+  \end{center}
+  \caption{Logo du Gretsi (ici, de taille égale à la moitié de la taille de la colonne).}
+  \label{logo}
+\end{figure}
+
+% ===================================================================================== %
+
+\section{Formules mathématiques}
+
+Les formules mathématiques sont numérotées, comme c'est le cas de la formule \ref{formule}~:
+\begin{equation}
+  \label{formule}
+  F(x) = \int_{-\infty}^x f(u)\,du.
+\end{equation}
+
+% ===================================================================================== %
+
+\section{Algorithmes}
+
+Les algorithmes sont insérés avec l'environnement \href{https://distrib-coffee.ipsl.jussieu.fr/pub/mirrors/ctan/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}{\texttt{algorithm2e}}.
+Les lignes peuvent être numérotées avec la commande \verb!\LinesNumbered!.
+
+\LinesNumbered
+\begin{algorithm}
+  $i = 0$ \\
+  \Pour{$x=0...10$}{
+    $i = i + 1$ \\
+  }
+  \caption{Exemple d'algorithme}
+\end{algorithm}
+
+% ===================================================================================== %
+
+\section{Bibliographie}
+
+La bibliographie est insérée avec Bib\TeX.
+Dans l'article, utilisez la commande \verb!\bibliography!.
+Le style de bibliographie n'est pas à préciser car il est automatiquement défini dans la classe~:
+il s'agit de \texttt{plain-fr} (en français) ou \texttt{plain} (en anglais).
+
+% ===================================================================================== %
+
+\bibliography{biblio}
+\nocite{*} % Commande à supprimer
+
+% ===================================================================================== %
+
+\end{document}
